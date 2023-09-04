@@ -36,12 +36,15 @@
             addFolderButton = new Button();
             removeFolderButton = new Button();
             renameFolderButton = new Button();
+            openFolderBrowserDialog = new Button();
+            folderBrowserDialogWindow = new FolderBrowserDialog();
             SuspendLayout();
             // 
             // folderStructureTreeView
             // 
             folderStructureTreeView.BackColor = Color.White;
             folderStructureTreeView.BorderStyle = BorderStyle.None;
+            folderStructureTreeView.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             folderStructureTreeView.Location = new Point(12, 27);
             folderStructureTreeView.Name = "folderStructureTreeView";
             folderStructureTreeView.Size = new Size(260, 280);
@@ -74,7 +77,7 @@
             folderNameTextBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             folderNameTextBox.Location = new Point(278, 27);
             folderNameTextBox.Name = "folderNameTextBox";
-            folderNameTextBox.Size = new Size(280, 39);
+            folderNameTextBox.Size = new Size(237, 39);
             folderNameTextBox.TabIndex = 3;
             folderNameTextBox.TextChanged += folderNameTextBox_TextChanged;
             // 
@@ -108,12 +111,23 @@
             renameFolderButton.UseVisualStyleBackColor = true;
             renameFolderButton.Click += renameFolderButton_Click;
             // 
+            // openFolderBrowserDialog
+            // 
+            openFolderBrowserDialog.Location = new Point(521, 27);
+            openFolderBrowserDialog.Name = "openFolderBrowserDialog";
+            openFolderBrowserDialog.Size = new Size(37, 39);
+            openFolderBrowserDialog.TabIndex = 7;
+            openFolderBrowserDialog.Text = "...";
+            openFolderBrowserDialog.UseVisualStyleBackColor = true;
+            openFolderBrowserDialog.Click += openFolderBrowserDialog_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(570, 330);
+            Controls.Add(openFolderBrowserDialog);
             Controls.Add(renameFolderButton);
             Controls.Add(removeFolderButton);
             Controls.Add(addFolderButton);
@@ -121,8 +135,11 @@
             Controls.Add(exportTreeViewButton);
             Controls.Add(importTreeViewButton);
             Controls.Add(folderStructureTreeView);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Folder Wizard";
             ResumeLayout(false);
             PerformLayout();
@@ -137,5 +154,7 @@
         private Button addFolderButton;
         private Button removeFolderButton;
         private Button renameFolderButton;
+        private Button openFolderBrowserDialog;
+        private FolderBrowserDialog folderBrowserDialogWindow;
     }
 }
