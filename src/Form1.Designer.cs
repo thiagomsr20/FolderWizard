@@ -54,7 +54,6 @@
             folderStructureTreeView.SelectedImageIndex = 0;
             folderStructureTreeView.Size = new Size(260, 280);
             folderStructureTreeView.TabIndex = 0;
-            folderStructureTreeView.AfterSelect += folderStructureTreeView_AfterSelect;
             // 
             // imageList1
             // 

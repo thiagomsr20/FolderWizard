@@ -2,7 +2,7 @@
 
 public class Node
 {
-    public string Id { get; set; }
+    public string Name { get; set; }
 
-    public Node[] Nodes { get; set; }
+    public Node[]? Nodes { get; set; }
 }

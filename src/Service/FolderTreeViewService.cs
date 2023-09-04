@@ -23,4 +23,9 @@ public class FolderTreeViewService
         return validation;
     }
 
+    public void RenameFolder(string oldName, string newName)
+    {
+        oldName = newName;
+    }
+
 }

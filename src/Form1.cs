@@ -12,11 +12,6 @@ namespace Folder_Wizard
         // Sevices
         public FolderTreeViewService FolderService = new FolderTreeViewService();
 
-        private void folderStructureTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
         private void addFolderButton_Click(object sender, EventArgs e)
         {
             if (FolderService.FolderNameIsValid(folderNameTextBox.Text))
@@ -37,7 +32,7 @@ namespace Folder_Wizard
 
         private void renameFolderButton_Click(object sender, EventArgs e)
         {
-
+            folderStructureTreeView.SelectedNode.Text = folderNameTextBox.Text;
         }
 
         private void removeFolderButton_Click(object sender, EventArgs e)
