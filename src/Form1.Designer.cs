@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             folderStructureTreeView = new TreeView();
+            imageList1 = new ImageList(components);
             importTreeViewButton = new Button();
             exportTreeViewButton = new Button();
             folderNameTextBox = new TextBox();
@@ -45,11 +47,21 @@
             folderStructureTreeView.BackColor = Color.White;
             folderStructureTreeView.BorderStyle = BorderStyle.None;
             folderStructureTreeView.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            folderStructureTreeView.ImageIndex = 0;
+            folderStructureTreeView.ImageList = imageList1;
             folderStructureTreeView.Location = new Point(12, 27);
             folderStructureTreeView.Name = "folderStructureTreeView";
+            folderStructureTreeView.SelectedImageIndex = 0;
             folderStructureTreeView.Size = new Size(260, 280);
             folderStructureTreeView.TabIndex = 0;
             folderStructureTreeView.AfterSelect += folderStructureTreeView_AfterSelect;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "pasta.ico");
             // 
             // importTreeViewButton
             // 
@@ -156,5 +168,6 @@
         private Button renameFolderButton;
         private Button openFolderBrowserDialog;
         private FolderBrowserDialog folderBrowserDialogWindow;
+        private ImageList imageList1;
     }
 }

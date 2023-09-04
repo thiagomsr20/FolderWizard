@@ -25,10 +25,10 @@ namespace Folder_Wizard
             }
             else
             {
-                MessageBox.Show("Invalid folder name!","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid folder name!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-        }   
+        }
 
         private void folderNameTextBox_TextChanged(object sender, EventArgs e)
         {

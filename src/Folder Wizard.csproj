@@ -11,10 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="StaticFiles\Icon\fumaca.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Controller\" />
   </ItemGroup>
