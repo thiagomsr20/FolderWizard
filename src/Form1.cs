@@ -9,20 +9,13 @@ namespace Folder_Wizard
             InitializeComponent();
         }
 
-        // Sevices
-        public FolderTreeViewService FolderService = new FolderTreeViewService();
+        // Instance to make FolderTreeView avaiable
+        public FolderTreeViewService FolderTreeViewService = new FolderTreeViewService();
 
-        private void addFolderButton_Click(object sender, EventArgs e)
+        public void addFolderButton_Click(object sender, EventArgs e)
         {
-            if (FolderService.FolderNameIsValid(folderNameTextBox.Text))
-            {
-                folderStructureTreeView.Nodes.Add(folderNameTextBox.Text);
-            }
-            else
-            {
-                MessageBox.Show("Invalid folder name!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            FolderTreeViewService.CreateFolder(folderNameTextBox.Text);
+            MessageBox.Show(FolderTreeViewService.GetNodes().ToString());
         }
 
         private void folderNameTextBox_TextChanged(object sender, EventArgs e)
@@ -32,7 +25,7 @@ namespace Folder_Wizard
 
         private void renameFolderButton_Click(object sender, EventArgs e)
         {
-            folderStructureTreeView.SelectedNode.Text = folderNameTextBox.Text;
+            
         }
 
         private void removeFolderButton_Click(object sender, EventArgs e)

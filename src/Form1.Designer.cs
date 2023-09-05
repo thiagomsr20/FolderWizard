@@ -158,15 +158,15 @@
 
         #endregion
 
-        private TreeView folderStructureTreeView;
-        private Button importTreeViewButton;
-        private Button exportTreeViewButton;
-        private TextBox folderNameTextBox;
-        private Button addFolderButton;
-        private Button removeFolderButton;
-        private Button renameFolderButton;
-        private Button openFolderBrowserDialog;
-        private FolderBrowserDialog folderBrowserDialogWindow;
-        private ImageList imageList1;
+        public TreeView folderStructureTreeView;
+        public Button importTreeViewButton;
+        public Button exportTreeViewButton;
+        public TextBox folderNameTextBox;
+        public Button addFolderButton;
+        public Button removeFolderButton;
+        public Button renameFolderButton;
+        public Button openFolderBrowserDialog;
+        public FolderBrowserDialog folderBrowserDialogWindow;
+        public ImageList imageList1;
     }
 }

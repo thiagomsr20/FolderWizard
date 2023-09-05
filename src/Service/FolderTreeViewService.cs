@@ -1,31 +1,43 @@
-﻿namespace FolderWizard.Services.FolderTreeView;
+﻿using Folder_Wizard;
+
+namespace FolderWizard.Services.FolderTreeView;
 
 public class FolderTreeViewService
 {
-    // This method can only validate a string input, it doesn't check if it already exists
+    public Form1? Form1Service { get; set; }
+
+    public TreeView? GetNodes() => Form1Service.folderStructureTreeView;
+
     public bool FolderNameIsValid(string folderName)
     {
+        #region Validate the input of the folder name
+
         bool validation = true;
-        char[] invalidChars = new char[] { '/', '\\', '*','?','"',':','|','<','>' };
-        
+        char[] invalidChars = new char[] { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
+
         List<bool> conditions = new();
         conditions.Add(string.IsNullOrEmpty(folderName));
         conditions.Add(folderName.Any(x => invalidChars.Contains(x)));
 
-        foreach(bool condition in conditions)
-        {
-            if(condition is true)
-            {
-                validation = false;
-            }
-        }
+        if(conditions.Any(condition => condition is true)) validation = false;
+
+        #endregion
+
+        #region Validate if the folder name already exist
+
+
+        #endregion
 
         return validation;
     }
 
-    public void RenameFolder(string oldName, string newName)
+    public void CreateFolder(string folderName)
     {
-        oldName = newName;
+        Form1Service.folderStructureTreeView.Nodes.Add(folderName);
+        if(FolderNameIsValid(folderName) is true)
+        {
+            // Create folder
+        }
     }
 
 }

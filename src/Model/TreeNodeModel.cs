@@ -2,7 +2,7 @@
 
 public class Node
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
-    public Node[]? Nodes { get; set; }
+    public List<Node>? Nodes { get; set; }
 }
