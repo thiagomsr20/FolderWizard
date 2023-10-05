@@ -9,7 +9,6 @@ namespace Folder_Wizard
             InitializeComponent();
         }
 
-        // Instance to make FolderTreeView avaiable
         public FolderTreeViewService? FolderTreeViewService { get; set; }
 
         public void addFolderButton_Click(object sender, EventArgs e)
