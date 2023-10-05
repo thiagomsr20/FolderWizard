@@ -10,12 +10,11 @@ namespace Folder_Wizard
         }
 
         // Instance to make FolderTreeView avaiable
-        public FolderTreeViewService FolderTreeViewService = new FolderTreeViewService();
+        public FolderTreeViewService? FolderTreeViewService { get; set; }
 
         public void addFolderButton_Click(object sender, EventArgs e)
         {
-            FolderTreeViewService.CreateFolder(folderNameTextBox.Text);
-            MessageBox.Show(FolderTreeViewService.GetNodes().ToString());
+            MessageBox.Show(FolderTreeViewService?.GetNodes()?.ToString());
         }
 
         private void folderNameTextBox_TextChanged(object sender, EventArgs e)
@@ -25,7 +24,7 @@ namespace Folder_Wizard
 
         private void renameFolderButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void removeFolderButton_Click(object sender, EventArgs e)

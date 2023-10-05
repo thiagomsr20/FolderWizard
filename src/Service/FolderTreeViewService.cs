@@ -6,7 +6,7 @@ public class FolderTreeViewService
 {
     public Form1? Form1Service { get; set; }
 
-    public TreeView? GetNodes() => Form1Service.folderStructureTreeView;
+    public TreeView? GetNodes() => Form1Service?.folderStructureTreeView;
 
     public bool FolderNameIsValid(string folderName)
     {
@@ -33,7 +33,7 @@ public class FolderTreeViewService
 
     public void CreateFolder(string folderName)
     {
-        Form1Service.folderStructureTreeView.Nodes.Add(folderName);
+        Form1Service?.folderStructureTreeView.Nodes.Add(folderName);
         if(FolderNameIsValid(folderName) is true)
         {
             // Create folder
