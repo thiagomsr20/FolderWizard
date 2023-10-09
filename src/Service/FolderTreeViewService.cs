@@ -6,20 +6,18 @@ public class FolderTreeViewService
 {
     public Form1? Form1Service { get; set; }
 
-    public TreeView? GetNodes() => Form1Service?.folderStructureTreeView;
+    
 
-    public bool FolderNameIsValid(string folderName)
+    private bool FolderNameIsValid(string folderName)
     {
         #region Validate the input of the folder name
 
-        bool validation = true;
+        bool FolderNameIsValid = true;
         char[] invalidChars = new char[] { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
 
-        List<bool> conditions = new();
-        conditions.Add(string.IsNullOrEmpty(folderName));
-        conditions.Add(folderName.Any(x => invalidChars.Contains(x)));
+        List<bool> conditionsToValidateFolderName = new() { string.IsNullOrEmpty(folderName), folderName.Any(x => invalidChars.Contains(x)) };
 
-        if(conditions.Any(condition => condition is true)) validation = false;
+        if(conditionsToValidateFolderName.Any(conditionsToValidateFolderName => conditionsToValidateFolderName is true)) FolderNameIsValid = false;
 
         #endregion
 
@@ -28,16 +26,15 @@ public class FolderTreeViewService
 
         #endregion
 
-        return validation;
+        return FolderNameIsValid;
     }
 
     public void CreateFolder(string folderName)
     {
-        Form1Service?.folderStructureTreeView.Nodes.Add(folderName);
-        if(FolderNameIsValid(folderName) is true)
-        {
-            // Create folder
-        }
+        if(FolderNameIsValid(folderName) is true) Form1Service?.folderStructureTreeView.Nodes.Add(folderName);
+
+
+
     }
 
 }
