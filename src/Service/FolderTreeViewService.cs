@@ -47,7 +47,7 @@ public class FolderTreeViewService
 
     public void RemoveSelectedFolder()
     {
-
+        Form1Service?.folderStructureTreeView.SelectedNode.Remove();
     }
 
     public void RenameSelectedFolder()
