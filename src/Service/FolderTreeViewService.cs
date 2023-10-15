@@ -13,17 +13,18 @@ public class FolderTreeViewService
         string folderCantBeCreatedMessageError = string.Empty;
         char[] invalidChars = { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
 
-        Dictionary<string, bool> conditionsToValidateFolderName = new()
+        Dictionary<string, bool> folderNameInvalidationsConditions = new()
         {
             {"The folder name can be empty", string.IsNullOrEmpty(folderName) },
             {"The folder name has invalid char", folderName.Any(x => invalidChars.Contains(x)) }
         };
 
-        foreach (KeyValuePair<string,bool> conditions in conditionsToValidateFolderName)
+        foreach (KeyValuePair<string,bool> conditions in folderNameInvalidationsConditions)
         {
             if(conditions.Value is true)
             {
                 folderCantBeCreatedMessageError = conditions.Key;
+                folderNameIsValid = false;
                 break;
             }
         }
