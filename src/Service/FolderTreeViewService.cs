@@ -10,27 +10,25 @@ public class FolderTreeViewService
     private (string, bool) FolderNameIsValid(string folderName)
     {
         bool folderNameIsValid = true;
-        string folderCantBeCreatedException = string.Empty;
-        char[] invalidChars = new char[] { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
+        string folderCantBeCreatedMessageError = string.Empty;
+        char[] invalidChars = { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
 
         Dictionary<string, bool> conditionsToValidateFolderName = new()
         {
-            {"Folder name can be empty", string.IsNullOrEmpty(folderName) },
-            {"Folder name has invalid char", folderName.Any(x => invalidChars.Contains(x)) },
-            {"Folder name already exist in same path", false }
+            {"The folder name can be empty", string.IsNullOrEmpty(folderName) },
+            {"The folder name has invalid char", folderName.Any(x => invalidChars.Contains(x)) }
         };
 
-        foreach (bool KeyValuePair in conditionsToValidateFolderName.Values)
+        foreach (KeyValuePair<string,bool> conditions in conditionsToValidateFolderName)
         {
-            if (KeyValuePair is true)
+            if(conditions.Value is true)
             {
-                folderNameIsValid = true;
+                folderCantBeCreatedMessageError = conditions.Key;
                 break;
             }
-            KeyValuePair.
         }
 
-        return (folderCantBeCreatedException, folderNameIsValid);
+        return (folderCantBeCreatedMessageError, folderNameIsValid);
     }
 
     public void CreateFolder(string folderName)
