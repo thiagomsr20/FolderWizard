@@ -27,6 +27,8 @@ public class FolderTreeViewService
                 folderNameIsValid = false;
                 break;
             }
+
+            folderCantBeCreatedMessageError = "Folder name is valid";
         }
 
         return (folderCantBeCreatedMessageError, folderNameIsValid);
