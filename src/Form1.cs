@@ -23,10 +23,7 @@ namespace Folder_Wizard
             
         }
 
-        private void removeFolderButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void removeFolderButton_Click(object sender, EventArgs e) => FolderTreeViewService.RemoveSelectedFolder();
 
         private void importTreeViewButton_Click(object sender, EventArgs e)
         {
