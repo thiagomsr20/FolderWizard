@@ -20,6 +20,16 @@
             base.Dispose(disposing);
         }
 
+        public TreeView folderStructureTreeView;
+        public Button importTreeViewButton;
+        public Button exportTreeViewButton;
+        public TextBox folderNameTextBox;
+        public Button addFolderButton;
+        public Button removeFolderButton;
+        public Button renameFolderButton;
+        public Button openFolderBrowserDialog;
+        public FolderBrowserDialog folderBrowserDialogWindow;
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -145,15 +155,5 @@
         }
 
         #endregion
-
-        public TreeView folderStructureTreeView;
-        public Button importTreeViewButton;
-        public Button exportTreeViewButton;
-        public TextBox folderNameTextBox;
-        public Button addFolderButton;
-        public Button removeFolderButton;
-        public Button renameFolderButton;
-        public Button openFolderBrowserDialog;
-        public FolderBrowserDialog folderBrowserDialogWindow;
     }
 }

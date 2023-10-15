@@ -4,26 +4,23 @@ namespace Folder_Wizard
 {
     public partial class Form1 : Form
     {
+        private FolderTreeViewService FolderTreeViewService;
         public Form1()
         {
             InitializeComponent();
+            FolderTreeViewService = new FolderTreeViewService(this);
         }
 
-        public FolderTreeViewService? FolderTreeViewService { get; set; }
-
-        public void addFolderButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(FolderTreeViewService?.GetNodes()?.ToString());
-        }
+        public void addFolderButton_Click(object sender, EventArgs e) => FolderTreeViewService.CreateFolder(folderNameTextBox.Text);
 
         private void folderNameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void renameFolderButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void removeFolderButton_Click(object sender, EventArgs e)

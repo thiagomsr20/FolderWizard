@@ -4,36 +4,53 @@ namespace FolderWizard.Services.FolderTreeView;
 
 public class FolderTreeViewService
 {
-    public Form1? Form1Service { get; set; }
+    private Form1? Form1Service;
+    public FolderTreeViewService(Form1? Form1) => Form1Service = Form1;
 
-    
-
-    private bool FolderNameIsValid(string folderName)
+    private (string, bool) FolderNameIsValid(string folderName)
     {
-        #region Validate the input of the folder name
-
-        bool FolderNameIsValid = true;
+        bool folderNameIsValid = true;
+        string folderCantBeCreatedException = string.Empty;
         char[] invalidChars = new char[] { '/', '\\', '*', '?', '"', ':', '|', '<', '>' };
 
-        List<bool> conditionsToValidateFolderName = new() { string.IsNullOrEmpty(folderName), folderName.Any(x => invalidChars.Contains(x)) };
+        Dictionary<string, bool> conditionsToValidateFolderName = new()
+        {
+            {"Folder name can be empty", string.IsNullOrEmpty(folderName) },
+            {"Folder name has invalid char", folderName.Any(x => invalidChars.Contains(x)) },
+            {"Folder name already exist in same path", false }
+        };
 
-        if(conditionsToValidateFolderName.Any(conditionsToValidateFolderName => conditionsToValidateFolderName is true)) FolderNameIsValid = false;
+        foreach (bool KeyValuePair in conditionsToValidateFolderName.Values)
+        {
+            if (KeyValuePair is true)
+            {
+                folderNameIsValid = true;
+                break;
+            }
+            KeyValuePair.
+        }
 
-        #endregion
-
-        #region Validate if the folder name already exist
-
-
-        #endregion
-
-        return FolderNameIsValid;
+        return (folderCantBeCreatedException, folderNameIsValid);
     }
 
     public void CreateFolder(string folderName)
     {
-        if(FolderNameIsValid(folderName) is true) Form1Service?.folderStructureTreeView.Nodes.Add(folderName);
+        if(FolderNameIsValid(folderName).Item2 is true)
+        {
+            Form1Service?.folderStructureTreeView.Nodes.Add(folderName);
+            return;
+        }
 
+        MessageBox.Show(FolderNameIsValid(folderName).Item1);
+    }
 
+    public void RemoveSelectedFolder()
+    {
+
+    }
+
+    public void RenameSelectedFolder()
+    {
 
     }
 
